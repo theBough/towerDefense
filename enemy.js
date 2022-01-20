@@ -3,7 +3,7 @@ function Enemy(x,y,w,h){
   this.y = y;
   this.w = w;
   this.h = h;
-  this.direction = "r"
+  this.direction = "d"
   
   this.display = function(){
     rect(this.x, this.y, this.w, this.h);
