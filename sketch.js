@@ -7,5 +7,6 @@ function setup() {
 
 function draw() {
   background(220);
-  e.display()
+  e.display();
+  e.update();
 }
