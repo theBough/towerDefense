@@ -1,20 +1,24 @@
 let e;
 let l;
 let r;
+let img;
 
 function setup() {
-  createCanvas(400, 400);
+  createCanvas(600, 400);
   e = new Enemy(200, 50, 50, 50);
   r = new RightTurn(350,100,60,60);
   l = new LeftTurn(200, 200, 60, 60);
+  img= loadImage("map.jpg")
 }
 
 function draw() {
   background(220);
-  e.display();
-  e.update();
+  
    r.display();
   l.display();
+  image(img,0,0,600,400)
+  e.display();
+  e.update();
   checkForTurns();
 }
 
