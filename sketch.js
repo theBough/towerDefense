@@ -38,6 +38,25 @@ function changeDirection(thisEnemy, thisTurn) {
         thisEnemy.direction = "r";
         break;
     } //end Switch
+  }else{
+    switch (thisEnemy.direction) {
+      case "l":
+        thisEnemy.x += 3;
+        thisEnemy.direction = "u";
+        break;
+      case "r":
+        thisEnemy.x -= 3;
+        thisEnemy.direction = "d";
+        break;
+      case "u":
+        thisEnemy.y += 3;
+        thisEnemy.direction = "r";
+        break;
+      case "d":
+        thisEnemy.y -= 3;
+        thisEnemy.direction = "l";
+        break;
+    } //end Switch
   }
 }
 
