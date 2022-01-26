@@ -5,7 +5,7 @@ let img;
 
 function setup() {
   createCanvas(600, 400);
-  e = new Enemy(200, 50, 50, 50);
+  e = new Enemy(300, 0, 25, 25);
   placeTurnBlocks()
   
   img= loadImage("map.jpg")
@@ -13,20 +13,20 @@ function setup() {
 function placeTurnBlocks(){
   //create a block for every corner.
   //reminder: RightTurn(x location, y location, width, height)
-  r.push(new RightTurn(350,100,60,60));
-  l.push(new LeftTurn(275, 75, 40, 40));
+  r.push(new RightTurn(500,65,40,40,"red"));
+  l.push(new LeftTurn(295, 85, 40, 40,"blue"));
 }
 
 function draw() {
   background(220);
-  
+  image(img,0,0,600,400)
   for(i = 0; i<r.length;i++){
     r[i].display();
   }
    for(i = 0; i<l.length;i++){
     l[i].display();
   }
-  image(img,0,0,600,400)
+  
   
   e.display();
   e.update();
