@@ -1,22 +1,33 @@
 let e;
-let l;
-let r;
+let l = [];
+let r = [];
 let img;
 
 function setup() {
   createCanvas(600, 400);
   e = new Enemy(200, 50, 50, 50);
-  r = new RightTurn(350,100,60,60);
-  l = new LeftTurn(200, 200, 60, 60);
+  placeTurnBlocks()
+  
   img= loadImage("map.jpg")
+}
+function placeTurnBlocks(){
+  //create a block for every corner.
+  //reminder: RightTurn(x location, y location, width, height)
+  r.push(new RightTurn(350,100,60,60));
+  l.push(new LeftTurn(275, 75, 40, 40));
 }
 
 function draw() {
   background(220);
   
-   r.display();
-  l.display();
+  for(i = 0; i<r.length;i++){
+    r[i].display();
+  }
+   for(i = 0; i<l.length;i++){
+    l[i].display();
+  }
   image(img,0,0,600,400)
+  
   e.display();
   e.update();
   checkForTurns();
@@ -68,17 +79,22 @@ function changeDirection(thisEnemy, thisTurn) {
 //a leftTurn, or rightTurn
 function checkForTurns() {
   rectMode(CENTER)
-  if (
-    Math.abs(e.x - l.x) < Math.abs(e.w / 2 + l.w / 2) &&
-    Math.abs(e.y - l.y) < Math.abs(e.h / 2 + l.h / 2)
+  for(i = 0; i< l.length; i++){
+    if (
+    Math.abs(e.x - l[i].x) < Math.abs(e.w / 2 + l[i].w / 2) &&
+    Math.abs(e.y - l[i].y) < Math.abs(e.h / 2 + l[i].h / 2)
   ) {
-    changeDirection(e,l);
-  }
-
-  if (
-    Math.abs(e.x - r.x) < Math.abs(e.w / 2 + r.w / 2) &&
-    Math.abs(e.y - r.y) < Math.abs(e.h / 2 + r.h / 2)
+    changeDirection(e,l[i]);
+    }//end if
+  }//end for
+  
+  for( i = 0 ; i < r.length; i++){
+    if (
+    Math.abs(e.x - r[i].x) < Math.abs(e.w / 2 + r[i].w / 2) &&
+    Math.abs(e.y - r[i].y) < Math.abs(e.h / 2 + r[i].h / 2)
   ) {
-    changeDirection(e,r);
+    changeDirection(e,r[i]);
   }
+  }
+  
 }
