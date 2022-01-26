@@ -4,6 +4,7 @@ function Enemy(x,y,w,h){
   this.w = w;
   this.h = h;
   this.direction = "d"
+  this.speed = 2;
   
   this.display = function(){
     rect(this.x, this.y, this.w, this.h);
@@ -11,16 +12,16 @@ function Enemy(x,y,w,h){
   
   this.update= function(){
     if(this.direction == "d"){
-      this.y += 3;
+      this.y += this.speed;
     }
     if(this.direction == "u"){
-      this.y -= 3;
+      this.y -= this.speed;
     }
     if(this.direction == "l"){
-      this.x -= 3;
+      this.x -= this.speed;
     }
     if(this.direction == "r"){
-      this.x += 3;
+      this.x += this.speed;
     }
   }
 }//end Enemy
