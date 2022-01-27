@@ -5,9 +5,11 @@ function Enemy(x,y,w,h){
   this.h = h;
   this.direction = "d"
   this.speed = 2;
+  this.img = loadImage("bot.png")
   
   this.display = function(){
-    rect(this.x, this.y, this.w, this.h);
+    this.img.resize(this.w, this.h)
+    image(this.img, this.x, this.y);
   }//end function display
   
   this.update= function(){
