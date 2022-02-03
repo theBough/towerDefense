@@ -6,7 +6,11 @@ let t = [];
 
 function setup() {
   createCanvas(600, 400);
-  t.push(new Tower(500,200,40,40));
+  t.push(new Tower(507,180,20,20));
+  t.push(new Tower(531,180,20,20));
+  t.push(new Tower(555,180,20,20));
+  t.push(new Tower(579,180,20,20));
+  
   placeTurnBlocks();
 
   img = loadImage("map.jpg");
@@ -48,6 +52,7 @@ function mousePressed(){
 function mouseReleased(){
   for(i = 0 ; i <t.length; i++){
     t[i].released();
+    console.log(t[i])
   }
 }
 function changeDirection(thisEnemy, thisTurn) {
