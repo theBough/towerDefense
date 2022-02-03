@@ -2,11 +2,11 @@ let e = [];
 let l = [];
 let r = [];
 let img;
-let t;
+let t = [];
 
 function setup() {
   createCanvas(600, 400);
-  t = new Tower(500,200,40,40);
+  t.push(new Tower(500,200,40,40));
   placeTurnBlocks();
 
   img = loadImage("map.jpg");
@@ -34,14 +34,21 @@ function draw() {
     e[i].display();
     e[i].update();
   }
-  t.update();
+  for(i = 0 ; i <t.length; i++){
+    t[i].update();  
+  }
+  
   checkForTurns();
 }
 function mousePressed(){
-    t.pressed();
+  for(i = 0 ; i <t.length; i++){
+    t[i].pressed();
+  }
 }
 function mouseReleased(){
-  t.released();
+  for(i = 0 ; i <t.length; i++){
+    t[i].released();
+  }
 }
 function changeDirection(thisEnemy, thisTurn) {
   if (thisTurn.name == "leftTurn") {
